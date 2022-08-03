@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git branch: 'main', credentialsId: 'bf5790f9-62c5-4fc6-9686-4c7e49a381eb', url: 'https://github.com/balladivya7/alp-dev'
+                git branch: 'main', url: 'https://github.com/piyushmj12/golden_image_packer'
             }
         }
     }
