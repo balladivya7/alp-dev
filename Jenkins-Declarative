@@ -30,9 +30,13 @@ pipeline {
             }
         }
         stage("Running for packer template"){
-            steps {
-               echo "Running Packer Template"
-            }
+           steps {
+    sh "pwd"
+    dir('tree/main/aws') {
+      sh "pwd"
+    }
+    sh "pwd"
+}
         }
     }
 }
