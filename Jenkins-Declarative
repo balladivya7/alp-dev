@@ -2,6 +2,28 @@ pipeline {
     agent any
 
     stages {
+        stage("Parameter selection"){
+         steps{
+           script{
+                properties([
+                        parameters([
+                            choice(
+                                choices: ['AWS', 'AZURE','OCI'],
+                                name: 'Cloud_Provider',
+                                 description: 'Please select appropriate cloud provider'
+                            ),
+                             choice(
+                                choices: ['JAVA', 'Python','Docker'],
+                                name: 'Template',
+                                description: 'Please select appropriate template'
+                            )
+                        ])
+                     ])
+                echo "Cloud Provider: ${params.Cloud_Provider}"
+           echo "Selected template: ${params.Template}"
+           }
+         }
+       }    
         stage('Checkout') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/piyushmj12/golden_image_packer']]])
