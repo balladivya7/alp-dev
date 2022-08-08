@@ -35,7 +35,7 @@ pipeline {
     dir('tree/main/aws') {
       sh "pwd"
     }
-    sh "pwd"
+    
 }
         }
     }
