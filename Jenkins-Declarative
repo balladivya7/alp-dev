@@ -38,6 +38,7 @@ pipeline {
             steps {
                 sh """
                 pwd
+                ls
                 cd<https://github.com/piyushmj12/golden_image_packer/blob/main/aws/templates/aws_ami.pkr.hcl>
                 packer build
                 pwd
