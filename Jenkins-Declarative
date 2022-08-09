@@ -15,8 +15,8 @@ pipeline {
             declare provisioner_sripts
             }
         }
-        stage("Parameter selection"){
-         steps{
+         stage("Parameter selection"){
+          steps{
            script{
                 properties([
                         parameters([
