@@ -34,18 +34,6 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/piyushmj12/golden_image_packer']]])
             }
         }
-        stage("Running for packer template"){
-            steps {
-                sh """
-                pwd
-                cd <blob/main/aws/templates/aws_ami.pkr.hcl> 
-                packer build
-                pwd
-                """
-        
-             }
-        
-         }
-
+       
     }
 }   
