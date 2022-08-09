@@ -40,8 +40,10 @@ pipeline {
             steps {
                 sh """
                 pwd
+                cd aws
                 ls
-               
+                cd templates
+                ls
                 pwd
                 """
                 
