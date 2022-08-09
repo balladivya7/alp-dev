@@ -11,7 +11,7 @@ pipeline {
             steps {
             checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/piyushmj12/golden_image_packer']]])
             sh "ls -lrt"
-            sh "cd golden_image_packer"
+            sh "cd aws/templates"
             declare provisioner_sripts
             }
         }
