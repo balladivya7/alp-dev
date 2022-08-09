@@ -10,8 +10,7 @@ pipeline {
          stage('Checkout') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/piyushmj12/golden_image_packer']]])
-                sh "ls -lrt"
-                declare provisioner_sripts
+                
             }
         }
          stage("Parameter selection"){
@@ -43,7 +42,6 @@ pipeline {
                 pwd
                 ls
                
-                packer build
                 pwd
                 """
                 
