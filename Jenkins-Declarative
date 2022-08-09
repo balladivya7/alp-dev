@@ -37,10 +37,10 @@ pipeline {
         stage("Running for packer template"){
             steps {
                 sh """pwd
-                cd dir('blob/main/aws/templates/aws_ami.pkr.hcl') {
+                cd <blob/main/aws/templates/aws_ami.pkr.hcl> 
                 packer build
                 pwd"""
-        }
+        
     
 }
         }
