@@ -35,11 +35,12 @@ pipeline {
             }
         }
         stage("Running for packer template"){
-           steps {
-    sh "pwd"
-    dir('blob/main/aws/templates/aws_ami.pkr.hcl') {
-      sh "pwd"
-    }
+            steps {
+                sh """pwd
+                dir('blob/main/aws/templates/aws_ami.pkr.hcl') {
+                packer build
+                pwd"""
+        }
     
 }
         }
