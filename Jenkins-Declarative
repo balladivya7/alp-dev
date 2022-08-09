@@ -2,6 +2,19 @@ pipeline {
     agent any
 
     stages {
+         stage('Clone to Packer Repo') {
+            steps {
+                git branch: 'main', url: 'https://github.com/piyushmj12/golden_image_packer'
+            }
+        }
+         stage('Checkout') {
+            steps {
+            checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/piyushmj12/golden_image_packer']]])
+            sh "ls -lrt"
+            sh "cd golden_image_packer"
+            declare provisioner_sripts
+            }
+        }
         stage("Parameter selection"){
          steps{
            script{
@@ -24,16 +37,7 @@ pipeline {
            }
          }
        }
-        stage('Clone to Packer Repo') {
-            steps {
-                git branch: 'main', url: 'https://github.com/piyushmj12/golden_image_packer'
-            }
-        }
-        stage('Checkout') {
-            steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/piyushmj12/golden_image_packer']]])
-            }
-        }
+       
         stage('Running Packer Template') {
             steps {
                 sh """
