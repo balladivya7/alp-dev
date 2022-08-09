@@ -41,9 +41,8 @@ pipeline {
                 packer build
                 pwd"""
         
-    
-}
         }
+        
     }
 
 }
